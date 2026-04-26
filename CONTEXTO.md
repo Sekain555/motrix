@@ -7,10 +7,10 @@
 | Frontend      | Next.js + TypeScript      | 14+ (App Router)              |
 | UI            | shadcn/ui + Tailwind CSS  | Última estable                |
 | Backend / DB  | Supabase (PostgreSQL)     | Proyecto cloud                |
-| Auth           | Supabase Auth             | Email + password              |
+| Auth          | Supabase Auth             | Email + password              |
 | Monorepo      | Turborepo + pnpm          | Workspaces                    |
 | Deploy        | Vercel                    | `apps/admin`                  |
-| Package manager | pnpm                   |                               |
+| Package manager  | pnpm                   |                               |
 
 ## Arquitectura
 
@@ -25,6 +25,13 @@ Motrix consume Supabase directamente desde el frontend, sin backend propio. Supa
 ## Modelos principales
 
 *Entidades:* tenants, profiles, clients, motorcycles, work_orders, ot_sequences.  
+
+*Campos destacados por entidad:*
+- **tenants:** name, slug, plan, business_name, rut, address, phone.
+- **motorcycles:** brand, model, year, displacement, plate, color, vin.
+- **work_orders:** code, status, description, diagnosis, reception_notes, assigned_to.
+- El resto de entidades mantiene los campos definidos en la migración `0001_initial_schema.sql`.
+
 *Relaciones:*
 - Un tenant tiene muchos profiles, clients, motorcycles y work_orders.
 - Un cliente pertenece a un tenant y puede tener varias motos.
@@ -53,10 +60,9 @@ Motrix consume Supabase directamente desde el frontend, sin backend propio. Supa
   *(vacío)*
 
 - 🟡 EN PROGRESO  
-  *(vacío)*
+  2. Schema Inicial y Migración (Alta · M · MVP)
 
 - 🔴 BACKLOG  
-  2. Schema Inicial y Migración (Alta · M · MVP)  
   3. Variables de Entorno y Config inicial (Alta · S · MVP)  
   4. Auth Multitenant (Alta · M · MVP)  
   5. Layout Dashboard y Navegación (Alta · S · MVP)  
@@ -72,6 +78,7 @@ Motrix consume Supabase directamente desde el frontend, sin backend propio. Supa
 - Definir si el campo `rut` se mantendrá obligatorio u opcional (RUT chileno).
 - Evaluar si `work_orders.status` conviene como `VARCHAR` con `CHECK` en lugar de `ENUM` para facilitar evolución del flujo.
 - Portal cliente con avatar 3D (React Three Fiber) queda **fuera del MVP**; se planificará en categoría post‑MVP.
+- **Post-MVP:** Agregar campo "Enviado a:" (derivación a terceros) en `work_orders` para cubrir toda la información de una OT física chilena.
 
 ## Decisiones de arquitectura
 
@@ -116,4 +123,4 @@ Formato de card y cierre según lo especificado en `METODOLOGIA_v2.md`.
 
 ---
 
-*Última actualización: 25 de abril de 2026 — Sekain & Deepsi*
+*Última actualización: 26 de abril de 2026*
