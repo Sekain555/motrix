@@ -54,16 +54,16 @@ Motrix consume Supabase directamente desde el frontend, sin backend propio. Supa
 **Leyenda:** 🔴 BACKLOG · 🟡 EN PROGRESO · 🔵 EN REVISIÓN · 🟢 DONE
 
 - 🟢 DONE  
-  1. Setup Monorepo (Alta · M · MVP) ✅
+  1. Setup Monorepo (Alta · M · MVP) ✅  
+  2. Schema Inicial y Migración (Alta · M · MVP) ✅
 
 - 🔵 EN REVISIÓN  
   *(vacío)*
 
 - 🟡 EN PROGRESO  
-  2. Schema Inicial y Migración (Alta · M · MVP)
+  3. Variables de Entorno y Config inicial (Alta · S · MVP)
 
 - 🔴 BACKLOG  
-  3. Variables de Entorno y Config inicial (Alta · S · MVP)  
   4. Auth Multitenant (Alta · M · MVP)  
   5. Layout Dashboard y Navegación (Alta · S · MVP)  
   6. CRUD de Clientes (Alta · M · MVP)  
